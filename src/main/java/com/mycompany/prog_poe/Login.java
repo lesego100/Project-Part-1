@@ -5,7 +5,7 @@ public class Login {
     Scanner scan = new Scanner(System.in);
     //reference to Registration onbject(so that the Login class can access the stored details which are in the Registration class
     Registration reg;
-    //create a constructor to recieve the Registration object
+    //create a constructor to receive the Registration object
     public Login(Registration reg) {
         this.reg = reg;
     }
@@ -71,11 +71,12 @@ public class Login {
         String inputPassword = scan.nextLine();
         //display the login results
         System.out.println(returnLoginStatus(inputUsername, inputPassword));
-        //if the entered details are valid, then exit loop
+        //if the entered details are valid, then exit the loop
         if(checkUserName(inputUsername) && checkPasswordComplexity(inputPassword)) {
             return true;
         }
-        System.out.println();//add spacing for readability
+        //add space for readability
+        System.out.println();
         }
     
     }
