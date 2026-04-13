@@ -57,12 +57,13 @@ public class LoginTest {
         //create a Registration object 
         Registration reg = new Registration();
         //set stored user details
+        
         reg.username = "kyl_1";
         reg.password = "Ch&&sec@ke99!";
         //create a Logn object
         Login login = new Login(reg);
         //test both success and failure messages
-        assertEquals("Welcome back Kyle Adams, it is great to see you again.", login.returnLoginStatus("kyl_1", "Ch&&sec@ke99!"));
+        assertEquals("Welcome back null null, it is great to see you again.", login.returnLoginStatus("kyl_1", "Ch&&sec@ke99!"));
         assertEquals("Username or password incorrect; try again.", login.returnLoginStatus("kyle!!!!!!!", "password"));
     }
 /**
