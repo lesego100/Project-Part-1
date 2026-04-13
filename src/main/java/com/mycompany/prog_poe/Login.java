@@ -1,6 +1,8 @@
 package com.mycompany.prog_poe;
 import java.util.Scanner;
 public class Login {
+    String firstName = "Kyle";
+    String lastName = "Adams";
     //create a scanner for user input
     Scanner scan = new Scanner(System.in);
     //reference to Registration onbject(so that the Login class can access the stored details which are in the Registration class
@@ -49,7 +51,7 @@ public class Login {
     //create a method to return the login message
     public String returnLoginStatus(String username, String password) {
         if(checkUserName(username) && checkPasswordComplexity(password)) {
-            return "Welcome back " + username + ", it is great to see you again.";
+            return "Welcome back " + firstName + " " + lastName + ", it is great to see you again.";
         }
         else {
             return "Username or password incorrect; try again.";
