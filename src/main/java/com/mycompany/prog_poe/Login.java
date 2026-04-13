@@ -1,8 +1,8 @@
 package com.mycompany.prog_poe;
 import java.util.Scanner;
 public class Login {
-    String firstName = "Kyle";
-    String lastName = "Adams";
+    String firstName;
+    String lastName;
     //create a scanner for user input
     Scanner scan = new Scanner(System.in);
     //reference to Registration onbject(so that the Login class can access the stored details which are in the Registration class
@@ -67,6 +67,10 @@ public class Login {
         //create a loop that will repeat until the correct login details are entered
         while(true) {
             //ask the user to input their login details
+        System.out.println("Enter your first name: ");
+        firstName = scan.nextLine();
+        System.out.print("Enter your last name: ");
+        lastName = scan.nextLine();
         System.out.print("Enter your username: ");
         String inputUsername = scan.nextLine();
         System.out.print("Enter your password: ");
