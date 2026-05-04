@@ -1,7 +1,6 @@
 package com.mycompany.prog_poe;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 public class Message {
@@ -86,7 +85,7 @@ public class Message {
             json.write("\"Hash: \":\"" + messageHash + "\",\n");
         }
         catch(IOException e) {
-            return "Failed to store message."
+            return "Failed to store message.";
         }
     }
 }
