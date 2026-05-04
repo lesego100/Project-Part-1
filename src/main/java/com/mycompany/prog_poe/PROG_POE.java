@@ -1,8 +1,10 @@
 
 package com.mycompany.prog_poe;
+import java.util.Scanner;
 public class PROG_POE {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         //create a Registration object 
         Registration rgtObj = new Registration();
         //Register the user
@@ -22,6 +24,40 @@ public class PROG_POE {
         }
         else {
             //otherwise, display this message if the login is unsucessful
+            System.out.println("Login failed.");
+        }
+        if(loginSuccess) {
+            System.out.println("Welcome to QuickChat.");
+            
+        int choice;
+        
+        do {
+        System.out.println("====== MENU ======");
+        System.out.println("1. Send Messages");
+        System.out.println("2. Display recently sent messages");
+        System.out.println("3. Quit");
+        choice = input.nextInt();
+        
+        switch(choice) {
+            case 1:
+                Message msgObj = new Message();
+                msgObj.retrieveMessage();
+                break;
+            case 2:
+                System.out.println("Coming soon!");
+                break;
+                
+            case 3:
+                System.out.println("Total messages sent: ");
+                System.out.println("Exiting...");
+                break;
+            default:
+                System.out.println("Invalid option. Try again.");
+        }
+        }
+        while(choice != 3);
+        }
+        else {
             System.out.println("Login failed.");
         }
     }
