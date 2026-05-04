@@ -86,7 +86,7 @@ public class Message {
             json.write("\"Hash: \":\"" + messageHash + "\",\n");
         }
         catch(IOException e) {
-            return "Failed to store message.";
+            return "Failed to store message."
         }
     }
 }
