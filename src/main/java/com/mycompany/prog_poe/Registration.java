@@ -68,11 +68,13 @@ public class Registration {
         boolean cellPhoneNumberValid = checkCellPhoneNumber(cellPhoneNumber);
         //if all user inputs are correct or valid, then the registration process will be successful
         if(usernameValid && passwordValid && cellPhoneNumberValid) {
+            System.out.println("\n ");
             System.out.println("Registration successful!");
             return true;
         }
         else {
             //if one or more of the user inputs aren't valid, then the registration will be unsuccessful and the user must try again
+            System.out.println("\n ");
             System.out.println("Registration failed! Please try again.");
         }
         
