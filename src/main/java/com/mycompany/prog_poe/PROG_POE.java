@@ -27,11 +27,13 @@ public class PROG_POE {
             System.out.println("Login failed.");
         }
         if(loginSuccess) {
-            System.out.println("Welcome to QuickChat.");
+            System.out.println("\n ");
+            System.out.println("Welcome to QuickChat");
             
         int choice;
         
         do {
+        System.out.println("\n ");
         System.out.println("====== MENU ======");
         System.out.println("1. Send Messages");
         System.out.println("2. Display recently sent messages");

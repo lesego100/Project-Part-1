@@ -21,8 +21,29 @@ public class Message {
     
         generateMessageID();
         
-        System.out.println("Enter recipient cell phone number: ");
+        System.out.print("Enter recipient cell phone number: ");
         recipientCell = input.nextLine();
+        
+        while(checkRecipientCell(recipientCell).equals("Invalid cell phone number")) {
+            System.out.println("Re-enter cell phone number: ");
+            recipientCell = input.nextLine();
+        }
+        System.out.print("Write message(max 250 characters): ");
+        message = input.nextLine();
+        
+        while(message.length() > 250) {
+            System.out.println("Message exceed 250 characters; re-enter message.");
+            message = input.nextLine();
+        }
+        messageHash = generateMessageHash();
+        
+        System.out.println("1. Send Message");
+        System.out.println("1. Disregard Message");
+        System.out.println("1. Store Message To Send Later");
+        int choice = input.nextInt();
+        
+        sentMessage(choice);
+        
 }
     public boolean checkMessageID() {
         return messageID.length() <= 10;

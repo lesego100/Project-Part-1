@@ -63,11 +63,12 @@ public class Login {
             System.out.println("No user registered yet.");
           return false;
         }
+        System.out.println("\n ");
         System.out.println("=== LOGIN ===");
         //create a loop that will repeat until the correct login details are entered
         while(true) {
             //ask the user to input their login details
-        System.out.println("Enter your first name: ");
+        System.out.print("Enter your first name: ");
         firstName = scan.nextLine();
         System.out.print("Enter your last name: ");
         lastName = scan.nextLine();
