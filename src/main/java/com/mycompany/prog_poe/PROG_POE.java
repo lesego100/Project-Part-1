@@ -38,6 +38,7 @@ public class PROG_POE {
         System.out.println("1. Send Messages");
         System.out.println("2. Display recently sent messages");
         System.out.println("3. Quit");
+        System.out.print("User's option: ");
         choice = input.nextInt();
         
         switch(choice) {

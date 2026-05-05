@@ -38,8 +38,9 @@ public class Message {
         messageHash = generateMessageHash();
         
         System.out.println("1. Send Message");
-        System.out.println("1. Disregard Message");
-        System.out.println("1. Store Message To Send Later");
+        System.out.println("2. Disregard Message");
+        System.out.println("3. Store Message To Send Later");
+        System.out.println("User's option: ");
         int choice = input.nextInt();
         
         sentMessage(choice);
