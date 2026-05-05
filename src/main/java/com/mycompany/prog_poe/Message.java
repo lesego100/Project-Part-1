@@ -25,7 +25,8 @@ public class Message {
         recipientCell = input.nextLine();
         
         while(checkRecipientCell(recipientCell).equals("Invalid cell phone number")) {
-            System.out.println("Re-enter cell phone number: ");
+            System.out.println("Invalid cell phone number");
+            System.out.print("Re-enter cell phone number: ");
             recipientCell = input.nextLine();
         }
         System.out.print("Write message(max 250 characters): ");
@@ -40,8 +41,9 @@ public class Message {
         System.out.println("1. Send Message");
         System.out.println("2. Disregard Message");
         System.out.println("3. Store Message To Send Later");
-        System.out.println("User's option: ");
+        System.out.print("User's option: ");
         int choice = input.nextInt();
+        System.out.println("\n ");
         
         sentMessage(choice);
         

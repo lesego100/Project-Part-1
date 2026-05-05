@@ -40,6 +40,7 @@ public class PROG_POE {
         System.out.println("3. Quit");
         System.out.print("User's option: ");
         choice = input.nextInt();
+        System.out.println("\n ");
         
         switch(choice) {
             case 1:
