@@ -43,6 +43,7 @@ public class Message {
         System.out.println("3. Store Message To Send Later");
         System.out.print("User's option: ");
         int choice = input.nextInt();
+        input.nextLine();
         
         sentMessage(choice);
         

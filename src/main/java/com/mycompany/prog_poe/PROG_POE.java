@@ -41,6 +41,7 @@ public class PROG_POE {
         System.out.print("User's option: ");
         choice = input.nextInt();
         
+        
         switch(choice) {
             case 1:
                 Message msgObj = new Message();
@@ -52,6 +53,7 @@ public class PROG_POE {
                 
             case 3:
                 Message msg = new Message();
+                System.out.println("\n ");
                 System.out.println("Total messages sent: " + msg.returnTotalMessages());
                 
                 System.out.println("Exiting...");
