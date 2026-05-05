@@ -74,7 +74,7 @@ public class Registration {
         else {
             //if one or more of the user inputs aren't valid, then the registration will be unsuccessful and the user must try again
             System.out.println("Registration failed! Please try again.");
-            System.out.println("\n ");
+            
         }
         
         }

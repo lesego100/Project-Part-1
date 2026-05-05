@@ -40,7 +40,6 @@ public class PROG_POE {
         System.out.println("3. Quit");
         System.out.print("User's option: ");
         choice = input.nextInt();
-        System.out.println("\n ");
         
         switch(choice) {
             case 1:
@@ -52,7 +51,9 @@ public class PROG_POE {
                 break;
                 
             case 3:
-                System.out.println("Total messages sent: ");
+                Message msg = new Message();
+                System.out.println("Total messages sent: " + msg.returnTotalMessages());
+                
                 System.out.println("Exiting...");
                 break;
             default:
