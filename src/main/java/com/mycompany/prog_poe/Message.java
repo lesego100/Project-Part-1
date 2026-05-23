@@ -114,14 +114,14 @@ public class Message {
                 totalMessages += totalMessages + "\nMessage: " + message;
                 totalMessages += totalMessages + "\nHash: " + messageHash;
                 storeMessages();
-                return "Message sent successfully";
+                return "Message sent successfully.";
             
             case 2:
-                return "Press 0 to delete the message";
+                return "Press 0 to delete message.";
             
             //stores entered message for later
             case 3: 
-                return "Message stored successfully";
+                return "Message stored successfully.";
             //program displays this if user's choice is incorrect    
             default:
                 return "Invalid option.";
