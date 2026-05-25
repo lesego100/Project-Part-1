@@ -64,7 +64,7 @@ public class PROG_POE {
                 System.out.println("Exiting...");
                 break;
             default:
-                System.out.println("Invalid option. Try again.");
+                System.out.println("Invalid option; Try again.");
         }
         }
         //program will continue while the choice is not number 3
