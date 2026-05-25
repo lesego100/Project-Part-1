@@ -1,4 +1,3 @@
-
 package com.mycompany.prog_poe;
 import java.util.Scanner;
 public class PROG_POE {
@@ -71,7 +70,7 @@ public class PROG_POE {
         //program will continue while the choice is not number 3
         while(choice != 3);
         }
-        //if login is not succesful, program will display the following message
+        //if login is not successful, program will display the following message
         else {
             System.out.println("Login failed.");
         }

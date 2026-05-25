@@ -1,6 +1,4 @@
-
 package com.mycompany.prog_poe;
-
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
