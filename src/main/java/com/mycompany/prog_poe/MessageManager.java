@@ -25,10 +25,10 @@ public class MessageManager {
             sentMessages[sentCount++] = message;  
         }
         else if(choice == 2) {
-            sentMessages[storedCount++] = message;
+            storedMessages[storedCount++] = message;
         }
         else if (choice == 3) {
-            sentMessages[disregardCount++] = message;
+            disregardedMessages[disregardCount++] = message;
         }  
     }
     public static int getGlobalIndex() {
@@ -36,43 +36,47 @@ public class MessageManager {
     }
     public static String longestStoredMessage() {
         
-        String longestMsg = storedMessages[0];
+        String longestMsg = "";
         
         for(int i = 1; i < storedCount; i++){
-            if(storedMessages[i].length() > longestMsg.length()) {
+            if(storedMessages[i] != null && (longestMsg.equals("") || storedMessages[i].length() > longestMsg.length())) {
                 longestMsg = storedMessages[i];
             }
         }
         return longestMsg;
     }
     public static String searchMessageByID(String messageID) {
-        for(int i = 0; i < storedCount; i++) {
-            if(ID[i].equals(messageID)) {
-                return "Recipient: " + recipient[i] + "\nMessage: " + storedMessages[i];
+        
+        for(int i = 0; i < getGlobalIndex(); i++) {
+            if(ID[i] != null && ID[i].equals(messageID)) {
+                return storedMessages[i];
             }
         }
         return "Message ID not found.";
     }
     public static String searchRecipientMessage(String recipientCell) {
         String result = "";
-        for(int i = 0; i < storedCount; i++) {
-            if(recipient[i].equals(recipientCell)) {
+        
+        for(int i = 0; i < getGlobalIndex(); i++) {
+            if(recipient[i] != null && recipient[i].equals(recipientCell) && storedMessages[i] != null) {
                 result += storedMessages[i];
             }
         }
         return result.equals("")? "No messages found" : result;
     }
     public static String deleteMessageByHash(String messageHash) {
+        
         for(int i = 0; i < storedCount; i++) {
             if(hash[i].equals(messageHash)) {
                 for(int count = i; count < storedCount - 1; count++) {
+                    
                     storedMessages[count] = storedMessages[count + 1];
                     hash[count] = hash[count + 1];
                     ID[count] = ID[count + 1];
                     recipient[count] = recipient[count + 1];
                 }
                 storedCount--;
-                return "Message successfully deleted.";
+                return "Message successfully deleted";
             }
         }
         return "Message not found";
@@ -95,7 +99,7 @@ public class MessageManager {
         
         addMessage("Yohoooo, I am at your gate.", "H3","0833448908", "+27746893676", 3);
         
-        addMessage("It is dinner time.", "H4","0838884567", "+27838884567", 1);
+        addMessage(" It is dinner time!", "H4","0838884567", "+27838884567", 1);
         
         addMessage("Ok, I am leaving without you.", "H5","0833448908", "+27746893676", 2);
         
@@ -104,7 +108,9 @@ public class MessageManager {
         String result = "";
         
         for(int i = 0; i < sentCount; i++) {
-            result += sentMessages[i];
+            if(sentMessages[i] != null) {
+              result += sentMessages[i];  
+            }
         }
         return result;
     }

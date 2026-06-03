@@ -51,7 +51,7 @@ public class MessageManagerTest {
     @Test
     public void testSearchRecipientMessage() {
         String expected = "Where are you? You are late! I have asked you to be on time."
-                         +"\nOk. I am leaving without you.";
+                         +"\nOk, I am leaving without you.";
         String actual = MessageManager.searchRecipientMessage("+27838884567");
         
         assertEquals(expected, actual);
