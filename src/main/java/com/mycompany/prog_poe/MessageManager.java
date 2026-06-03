@@ -99,9 +99,9 @@ public class MessageManager {
         
         addMessage("Yohoooo, I am at your gate.", "H3", "0833448908", "+27746893676", 3);
         
-        addMessage("It is dinner time!", "H4", "08334557896", "+27834557896", 1);
+        addMessage("It is dinner time!", "H4", "0838884567", "+27833448567", 1);
         
-        addMessage("Ok, I am leaving without you.", "H5","0838884567", "+27838884567", 2);
+        addMessage("Ok, I am leaving without you.", "H5","0833884567", "+27833884567", 2);
         
     }
     public static String getSentMessagesAsString() {
@@ -109,7 +109,10 @@ public class MessageManager {
         
         for(int i = 0; i < sentCount; i++) {
             if(sentMessages[i] != null) {
-              result += sentMessages[i] + "\n";  
+              result += sentMessages[i];  
+            }
+            else {
+              result += sentMessages[i] + "\n";
             }
         }
         return result;
