@@ -15,21 +15,20 @@ public class MessageManager {
     static int disregardCount = 0;
     
     public static void addMessage(String message, String messageHash, String messageID, String recipientCell, int choice ) {
-        hash[getGlobalIndex()] = messageHash;
-        ID[getGlobalIndex()] = messageID;
-        recipient[getGlobalIndex()] = recipientCell;
+        int index = getGlobalIndex();
+        
+        hash[index] = messageHash;
+        ID[index] = messageID;
+        recipient[index] = recipientCell;
         
         if(choice == 1) {
-            sentMessages[sentCount] = message;
-            sentCount++;
+            sentMessages[sentCount++] = message;  
         }
         else if(choice == 2) {
-            sentMessages[storedCount] = message;
-            storedCount++;
+            sentMessages[storedCount++] = message;
         }
         else if (choice == 3) {
-            sentMessages[disregardCount] = message;
-            disregardCount++;
+            sentMessages[disregardCount++] = message;
         }  
     }
     public static int getGlobalIndex() {
@@ -88,4 +87,26 @@ public class MessageManager {
         }
         return report;
     }
+    public static void populateTestData() {
+        
+        addMessage("Did you get the cake?", "H1", "08334557896", "+27834557896", 1);
+        
+        addMessage("Where are you? You are late! I have asked you to be on time.", "H2","0838884567", "+27838884567", 2);
+        
+        addMessage("Yohoooo, I am at your gate.", "H3","0833448908", "+27746893676", 3);
+        
+        addMessage("It is dinner time.", "H4","0838884567", "+27838884567", 1);
+        
+        addMessage("Ok, I am leaving without you.", "H5","0833448908", "+27746893676", 2);
+        
+    }
+    public static String getSentMessagesAsString() {
+        String result = "";
+        
+        for(int i = 0; i < sentCount; i++) {
+            result += sentMessages[i];
+        }
+        return result;
+    }
+
 }
