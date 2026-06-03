@@ -125,13 +125,19 @@ public class Message {
                 totalMessages += "\nMessage: " + message;
                 storeMessages();
                 
+                MessageManager.addMessage(message, messageHash, messageID, recipientCell, choice);
+                
                 return "Message sent successfully.";
             
             case 2:
+                MessageManager.addMessage(message, messageHash, messageID, recipientCell, choice);
+                
                 return "Press 0 to delete message.";
             
             //stores entered message for later
             case 3: 
+                MessageManager.addMessage(message, messageHash, messageID, recipientCell, choice);
+                
                 return "Message stored successfully.";
             //program displays this if user's choice is incorrect    
             default:
