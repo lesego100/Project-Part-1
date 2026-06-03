@@ -18,7 +18,7 @@ public class MessageManagerTest {
 
     @Test
     public void testAddMessage() { 
-        String expected = "Did you get the cake?" + "\nIt is dinner time!";
+        String expected = "Did you get the cake?\nIt is dinner time!";
         String actual = MessageManager.getSentMessagesAsString();
          
         assertEquals(expected, actual);

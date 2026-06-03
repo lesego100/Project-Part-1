@@ -38,7 +38,7 @@ public class MessageManager {
         
         String longestMsg = "";
         
-        for(int i = 1; i < storedCount; i++){
+        for(int i = 0; i < storedCount; i++){
             if(storedMessages[i] != null && (longestMsg.equals("") || storedMessages[i].length() > longestMsg.length())) {
                 longestMsg = storedMessages[i];
             }
@@ -95,13 +95,13 @@ public class MessageManager {
         
         addMessage("Did you get the cake?", "H1", "08334557896", "+27834557896", 1);
         
-        addMessage("Where are you? You are late! I have asked you to be on time.", "H2","0838884567", "+27838884567", 2);
+        addMessage("Where are you? You are late! I have asked you to be on time.", "H2", "0838884567", "+27838884567", 2);
         
-        addMessage("Yohoooo, I am at your gate.", "H3","0833448908", "+27746893676", 3);
+        addMessage("Yohoooo, I am at your gate.", "H3", "0833448908", "+27746893676", 3);
         
-        addMessage(" It is dinner time!", "H4","0838884567", "+27838884567", 1);
+        addMessage("It is dinner time!", "H4", "08334557896", "+27834557896", 1);
         
-        addMessage("Ok, I am leaving without you.", "H5","0833448908", "+27746893676", 2);
+        addMessage("Ok, I am leaving without you.", "H5","0838884567", "+27838884567", 2);
         
     }
     public static String getSentMessagesAsString() {
@@ -109,7 +109,7 @@ public class MessageManager {
         
         for(int i = 0; i < sentCount; i++) {
             if(sentMessages[i] != null) {
-              result += sentMessages[i];  
+              result += sentMessages[i] + "\n";  
             }
         }
         return result;
