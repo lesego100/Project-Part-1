@@ -21,15 +21,20 @@ public class MessageManager {
         ID[index] = messageID;
         recipient[index] = recipientCell;
         
-        if(choice == 1) {
-            sentMessages[sentCount++] = message;  
+        switch (choice) {
+            case 1:  
+                sentMessages[sentCount++] = message;
+                break;
+            case 2:
+                storedMessages[storedCount++] = message;
+                break;
+            case 3:
+                disregardedMessages[disregardCount++] = message;
+                break;
+            default:
+                break;
         }
-        else if(choice == 2) {
-            storedMessages[storedCount++] = message;
-        }
-        else if (choice == 3) {
-            disregardedMessages[disregardCount++] = message;
-        }  
+        index++;
     }
     public static int getGlobalIndex() {
         return sentCount + storedCount + disregardCount;
