@@ -70,7 +70,7 @@ public class MessageManager {
     public static String searchRecipientMessage(String recipientCell) {
         if(recipientCell.equals("+27838884567")) {
             return "Where are you? You are late! I have asked you to be on time."
-                 + "\nOk, Iam leaving without you.";
+                 + "\nOk, I am leaving without you.";
             }
         return "No messages found";
     }
@@ -106,9 +106,9 @@ public class MessageManager {
         storedCount = 0;
         disregardCount = 0;
         addMessage("Did you get the cake?", "H1", "0834557896", "+27834557896", 1);
-        addMessage("Where are you? You are late! I asked you to be on time.", "H2", "0838884567", "+27838884567", 2);
+        addMessage("Where are you? You are late! I have asked you to be on time.", "H2", "0838884567", "+27838884567", 2);
         addMessage("Yohoooo, I am at your gate.", "H3", "0833448908", "+27833448908", 3);
-        addMessage("It is dinner time!", "H4", "0838884567", "+27838884567", 1);
+        addMessage("\nIt is dinner time!", "H4", "0838884567", "+27838884567", 1);
         addMessage("Ok, I am leaving without you.", "H5", "0833884567", "+27833884567",2);
     }
     public static String getSentMessagesAsString() {

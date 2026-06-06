@@ -12,7 +12,7 @@ public class MessageManagerTest {
     public MessageManagerTest() {
     }
     @BeforeEach
-    public static void setup() {
+    public void setup() {
     MessageManager.sentMessages = new String[50];
     MessageManager.storedMessages = new String[50];
     MessageManager.disregardedMessages = new String [50];
