@@ -38,7 +38,8 @@ public class PROG_POE {
         System.out.println("====== MENU ======");
         System.out.println("1. Send Messages");
         System.out.println("2. Display recently sent messages");
-        System.out.println("3. Quit");
+        System.out.println("3. Stored Messages");
+        System.out.println("4. Quit");
         System.out.print("User's option: ");
         //this reads the user's input of their menu choice
         choice = input.nextInt();
@@ -57,6 +58,15 @@ public class PROG_POE {
                 break;
             //choice to exit the application and displays total number of messages sent
             case 3:
+                System.out.println("====STORED MESSAGES MENU====");
+                
+                System.out.println("Longest store message: ");
+                System.out.println(MessageManager.longestStoredMessage());
+                
+                System.out.println("\nMessage Report: ");
+                System.out.println(MessageManager.generateReport());
+                break;
+            case 4:
                 Message msg = new Message(input);
                 System.out.println("\n ");
                 System.out.println("Total messages sent: " + msg.returnTotalMessages());
@@ -68,7 +78,7 @@ public class PROG_POE {
         }
         }
         //program will continue while the choice is not number 3
-        while(choice != 3);
+        while(choice != 4);
         }
         //if login is not successful, program will display the following message
         else {

@@ -1,5 +1,5 @@
 package com.mycompany.prog_poe;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,9 +11,15 @@ public class MessageManagerTest {
     
     public MessageManagerTest() {
     }
-    @BeforeAll
+    @BeforeEach
     public static void setup() {
-        MessageManager.populateTestData();
+    MessageManager.sentMessages = new String[50];
+    MessageManager.storedMessages = new String[50];
+    MessageManager.disregardedMessages = new String [50];
+    MessageManager.hash = new String[50];
+    MessageManager.ID = new String[50];
+    MessageManager.recipient = new String[50];
+    MessageManager.populateTestData();
     }
 
     @Test
@@ -68,7 +74,6 @@ public class MessageManagerTest {
     @Test
     public void testGenerateReport() {
         String report = MessageManager.generateReport();
-        
         
         assertTrue(report.contains("Message Hash"));
         assertTrue(report.contains("Recipient"));
