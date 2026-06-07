@@ -37,17 +37,17 @@ public class Message {
         
         //input recipient's cell phone number
         System.out.print("\n");
-        System.out.print("Enter recipient cell phone number: ");
+        System.out.println("Enter recipient cell phone number: ");
         recipientCell = input.nextLine();
         
         //loop which validates the entered recipient's cell phone number using regex
         while(checkRecipientCell(recipientCell).equals("Invalid cell phone number")) {
             System.out.println("Invalid cell phone number");
-            System.out.print("Re-enter cell phone number: ");
+            System.out.println("Re-enter cell phone number: ");
             recipientCell = input.nextLine();
         }
         //input message
-        System.out.print("Write message(max 250 characters): ");
+        System.out.println("Write message(max 250 characters): ");
         message = input.nextLine();
         
         //loop which validates the length of the message

@@ -56,11 +56,11 @@ public class Registration {
         //create a loop that will repeat or loop until all conditions are met
         while(true) {
             //ask user for input
-        System.out.print("Enter your username: ");
+        System.out.println("Enter your username: ");
         username = input.nextLine();
-        System.out.print("Enter your password: ");
+        System.out.println("Enter your password: ");
         password = input.nextLine();
-        System.out.print("Enter your cell phone number: ");
+        System.out.println("Enter your cell phone number: ");
         cellPhoneNumber = input.nextLine();
         //validate all the inputs( check if all the inputs follow the conditions)
         boolean usernameValid = checkUserName(username);

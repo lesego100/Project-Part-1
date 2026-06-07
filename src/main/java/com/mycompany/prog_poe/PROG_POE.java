@@ -56,9 +56,9 @@ public class PROG_POE {
             case 2:
                 System.out.println("Coming soon!");
                 break;
-            //choice to exit the application and displays total number of messages sent
+            //chice to display stored messages menu
             case 3:
-                System.out.println("====STORED MESSAGES MENU====");
+                System.out.println("\n====STORED MESSAGES MENU====");
                 
                 System.out.println("Longest store message: ");
                 System.out.println(MessageManager.longestStoredMessage());
@@ -66,6 +66,7 @@ public class PROG_POE {
                 System.out.println("\nMessage Report: ");
                 System.out.println(MessageManager.generateReport());
                 break;
+            //choice to exit the application and displays total number of messages sent
             case 4:
                 Message msg = new Message(input);
                 System.out.println("\n ");
@@ -73,11 +74,15 @@ public class PROG_POE {
                 
                 System.out.println("Exiting...");
                 break;
+            /**
+             *if an invalid choice is picked from the menu, the program will 
+             *then display the following message
+             */
             default:
                 System.out.println("Invalid option. Try again.");
         }
         }
-        //program will continue while the choice is not number 3
+        //program will continue while the choice is not number 4
         while(choice != 4);
         }
         //if login is not successful, program will display the following message
