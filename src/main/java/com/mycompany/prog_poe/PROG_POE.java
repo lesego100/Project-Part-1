@@ -30,7 +30,12 @@ public class PROG_POE {
         if(loginSuccess) {
             System.out.println("\n ");
             System.out.println("Welcome to QuickChat");
-            
+        //User chooses how many messages they want to enter
+        System.out.println("How many messages would you like to enter? ");
+        int maxMessages = input.nextInt();
+        input.nextLine();
+        
+        int messagesEntered = 0;    
         int choice;
         //do-while menu loop which allows the user to choose from 3 options
         do {
@@ -49,8 +54,19 @@ public class PROG_POE {
         switch(choice) {
             //choice to send a message
             case 1:
-                Message msgObj = new Message(input);
-                msgObj.retrieveMessage();
+                //Check if user has reached the limit
+                if(messagesEntered < maxMessages) {
+                    Message msgObj = new Message(input);
+                    msgObj.retrieveMessage();
+                    messagesEntered++;
+                    
+                    System.out.println("Messages entered: " + messagesEntered 
+                                      +"/" + maxMessages);
+                }
+                else {
+                    System.out.println("You have already entered the maximum"
+                                     + "number of messages.");
+                }
                 break;
             //displays this message since the feature is still being developed
             case 2:
@@ -59,12 +75,47 @@ public class PROG_POE {
             //chice to display stored messages menu
             case 3:
                 System.out.println("\n====STORED MESSAGES MENU====");
+                System.out.println("a. Sender and Recipient");
+                System.out.println("b. Longest stored message");
+                System.out.println("c. Search by Message ID");
+                System.out.println("d. Search by Recipient");
+                System.out.println("e. Delete by Message Hash");//case to press zero to delete
+                System.out.println("f. Message Report ");
+                System.out.println("User's option: ");
+                String option = input.nextLine();
                 
-                System.out.println("Longest store message: ");
-                System.out.println(MessageManager.longestStoredMessage());
-                
-                System.out.println("\nMessage Report: ");
-                System.out.println(MessageManager.generateReport());
+                switch(option) {
+                    case "a":
+                            Message msgObj = new Message(input);
+                            System.out.println("Sender: " + rgtObj.cellPhoneNumber 
+                                              +"\nRecipient: " + msgObj.getRecipientCell());
+                       break;
+                    case "b":
+                            System.out.println(MessageManager.longestStoredMessage());
+                        break;
+                    case "c":
+                            System.out.println("Please enter Message ID to search: ");
+                            String ID = input.nextLine();
+                            
+                            System.out.println("\n====MESSAGE REPORT====");
+                            System.out.println(MessageManager.searchMessageByID(ID));
+                       break;
+                    case "d":
+                            System.out.println("Please enter Recipient to search: ");
+                            String recipient = input.nextLine();
+                            
+                            System.out.println(MessageManager.searchRecipientMessage(recipient));
+                        break;
+                    case "e":
+                            System.out.println("Please enter Message Hash to delete: ");
+                            String hash = input.nextLine();
+                            
+                            System.out.println(MessageManager.deleteMessageByHash(hash));
+                       break;
+                    case "f":
+                            System.out.println(MessageManager.generateReport());
+                        break;  
+                }
                 break;
             //choice to exit the application and displays total number of messages sent
             case 4:

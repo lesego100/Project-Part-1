@@ -56,7 +56,7 @@ public class Registration {
         //create a loop that will repeat or loop until all conditions are met
         while(true) {
             //ask user for input
-        System.out.println("Enter your username: ");
+        System.out.println("\nEnter your username: ");
         username = input.nextLine();
         System.out.println("Enter your password: ");
         password = input.nextLine();

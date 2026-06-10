@@ -19,7 +19,10 @@ public class Message {
     private static final String RECIPIENT_CELL_REGEX = "^\\+27\\d{9}$";
     //scanner passed from the main class and this helps avoid multiple scanner issues
     private final Scanner input;
-    
+    //getter to help call variable in other classes
+    public String getRecipientCell() {
+        return recipientCell;
+    }
     /**
      *
      * @param input
@@ -43,7 +46,7 @@ public class Message {
         //loop which validates the entered recipient's cell phone number using regex
         while(checkRecipientCell(recipientCell).equals("Invalid cell phone number")) {
             System.out.println("Invalid cell phone number");
-            System.out.println("Re-enter cell phone number: ");
+            System.out.println("\nRe-enter cell phone number: ");
             recipientCell = input.nextLine();
         }
         //input message

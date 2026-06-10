@@ -68,7 +68,7 @@ public class Login {
         //create a loop that will repeat until the correct login details are entered
         while(true) {
             //ask the user to input their login details
-        System.out.println("Enter your first name: ");
+        System.out.println("\nEnter your first name: ");
         firstName = scan.nextLine();
         System.out.println("Enter your last name: ");
         lastName = scan.nextLine();
