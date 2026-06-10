@@ -117,7 +117,7 @@ public class Message {
             case 1:
                 numberOfMessages++;
                 
-                System.out.println("Message ID: " + messageID);
+                System.out.println("Message ID: " + messageID);//FIX: THIS ONLY GETS DISPLAYED FOR THE FIRST MESSAGE ONLY
                 System.out.println("Message Hash: " + messageHash);
                 System.out.println("Recipient Cell: " + recipientCell);
                 System.out.println("Message: " + message);

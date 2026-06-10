@@ -65,7 +65,7 @@ public class PROG_POE {
                 }
                 else {
                     System.out.println("You have already entered the maximum"
-                                     + "number of messages.");
+                                     + " number of messages.");
                 }
                 break;
             //displays this message since the feature is still being developed
@@ -75,10 +75,10 @@ public class PROG_POE {
             //chice to display stored messages menu
             case 3:
                 System.out.println("\n====STORED MESSAGES MENU====");
-                System.out.println("a. Sender and Recipient");
-                System.out.println("b. Longest stored message");
-                System.out.println("c. Search by Message ID");
-                System.out.println("d. Search by Recipient");
+                System.out.println("a. Sender and Recipient");//NEED TO FIX RECIEPIENT PART
+                System.out.println("b. Longest stored message");//FIX: MUST BE STORED MESSAGE NOT SENT
+                System.out.println("c. Search by Message ID");//FIX: MESSAGE ID MUST BE OF THE STORED MESSAGE
+                System.out.println("d. Search by Recipient");//FIX: ONLY FINDS MESSAGE 2 
                 System.out.println("e. Delete by Message Hash");//case to press zero to delete
                 System.out.println("f. Message Report ");
                 System.out.println("User's option: ");
@@ -97,11 +97,10 @@ public class PROG_POE {
                             System.out.println("Please enter Message ID to search: ");
                             String ID = input.nextLine();
                             
-                            System.out.println("\n====MESSAGE REPORT====");
                             System.out.println(MessageManager.searchMessageByID(ID));
                        break;
                     case "d":
-                            System.out.println("Please enter Recipient to search: ");
+                            System.out.println("Please enter Recipient to search: ");//check this
                             String recipient = input.nextLine();
                             
                             System.out.println(MessageManager.searchRecipientMessage(recipient));
@@ -113,6 +112,7 @@ public class PROG_POE {
                             System.out.println(MessageManager.deleteMessageByHash(hash));
                        break;
                     case "f":
+                            System.out.println("\n====MESSAGE REPORT====");
                             System.out.println(MessageManager.generateReport());
                         break;  
                 }

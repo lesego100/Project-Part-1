@@ -34,7 +34,7 @@ public class MessageManager {
                 disregardCount++;
                 break;
             default:
-                break;//FIX THIS AND CHANGE TO IF STATEMENTS OR SOMETHING ELSE
+                break;
         }
     }
     public static int getGlobalIndex() {
@@ -68,8 +68,7 @@ public class MessageManager {
     }
     public static String searchRecipientMessage(String recipientCell) {
         if(recipientCell.equals("+27838884567")) {
-            return "Where are you? You are late! "
-                 + "I have asked you to be on time."
+            return "Where are you? You are late! I have asked you to be on time."
                  + "\nOk, I am leaving without you.";
             }
         return "No messages found";
