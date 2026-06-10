@@ -1,7 +1,6 @@
 package com.mycompany.prog_poe;
-import java.util.ArrayList;
 public class MessageManager {
-    //
+    //create parallel array list
     static String[] sentMessages = new String[50];
     static String[] storedMessages = new String[50];
     static String [] disregardedMessages = new String [50];
