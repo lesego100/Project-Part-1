@@ -87,18 +87,20 @@ public class PROG_POE {
                 switch(option) {
                     case "a":
                             for(int i = 0; i < MessageManager.globalIndex; i++) {
-                                if(MessageManager.storedMessages[i] != null) {
+                                if(MessageManager.storedMessages[i] != null 
+                                   && MessageManager.ID[i] != null
+                                   && MessageManager.recipient[i] != null) {
                                     System.out.println("Sender: " + MessageManager.ID[i]);
                                     System.out.println("Recipient: " + MessageManager.recipient[i]);
-                                    System.out.println("Message: " + MessageManager.storedMessages[i]);
+                                    System.out.println("Message: " + MessageManager.storedMessages[i]);//FIX: ONLY PICKS UP MESSAGE 2
                                 }
                             }
                        break;
                     case "b":
-                            System.out.println(MessageManager.longestStoredMessage());
+                            System.out.println(MessageManager.longestStoredMessage());//FIX
                         break;
                     case "c":
-                            System.out.println("Please enter Message ID to search: ");
+                            System.out.println("Please enter Message ID to search: ");//FIX: SHOWS SENT MESSAGE NOT STORED MESSAGE AND WE CAN ONLY SEE THE MESSAGE DETAILS OF MESG 1 ONLY
                             String ID = input.nextLine();
                             
                             System.out.println(MessageManager.searchMessageByID(ID));

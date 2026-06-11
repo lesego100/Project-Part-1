@@ -36,9 +36,6 @@ public class MessageManager {
         else if(choice == 3) {
             disregardedMessages[index] = message;
         }
-        System.out.println("Choice = " + choice);
-        System.out.println("Index = " + index);
-        System.out.println("Stored = " + storedMessages[index]);
     }
     
     public static String longestStoredMessage() {
@@ -46,7 +43,7 @@ public class MessageManager {
         String longestMsg = "";
         
         for(int i = 0; i < globalIndex; i++){
-            if(storedMessages[i] != null) {
+            if(storedMessages[i] != null && ID[i] != null && recipient[i] != null) {
                 if(storedMessages[i].length() > longestMsg.length()) {
                 longestMsg = storedMessages[i];
                }
@@ -79,7 +76,7 @@ public class MessageManager {
         String result = "";
         for(int i = 0; i < globalIndex; i++) {
             if(recipient[i] != null && recipient[i].equals(recipientCell)) {
-                if(storedMessages[i] != null) {
+                if(storedMessages[i] != null && ID[i] != null && recipient[i] != null) {
                     result += storedMessages[i] + "\n";
                 }
             }
@@ -92,7 +89,7 @@ public class MessageManager {
     public static String deleteMessageByHash(String messageHash) {
         for(int i = 0; i < globalIndex; i++) {
             if(hash[i] != null && hash[i].equals(messageHash)) {
-                for(int x = 0; x < globalIndex; x++) {
+                for(int x = i; x < globalIndex - 1; x++) {
                     
                     hash[x] = hash[x + 1];
                     ID[x] = ID[x + 1];
@@ -112,7 +109,7 @@ public class MessageManager {
                     storedMessages[last] = null;
                     disregardedMessages[last] = null;
                     
-                    globalIndex = globalIndex -1;
+                    globalIndex--;
                     
                     return "Message successfully deleted";
                 
@@ -126,10 +123,9 @@ public class MessageManager {
         for(int i = 0; i < globalIndex; i++) {
            if(hash[i] != null) {
                 
-            report += "\nMessage Hash: " + hash[i];
+            report += "Message Hash: " + hash[i];
             report += "\nRecipient: " + recipient[i];
-            report += "\nMessage: " + storedMessages[i];
-            System.out.println("\n");
+            report += "\nMessage: " + storedMessages[i];//CHECK THIS METHOD
             
             if(sentMessages[i] != null ) {
                 report += "Message: " + sentMessages[i];

@@ -76,3 +76,45 @@
 "Message": "Don't forget the snacks.",
 "Hash": "71:1:DONTSNACKS"
 }
+{
+"Message ID": "83037652",
+"Recipient": "+27924683694",
+"Message": "I am happy about my marks.",
+"Hash": "83:0:IMARKS"
+}
+{
+"Message ID": "59695679",
+"Recipient": "+27924683694",
+"Message": "I am happy about my marks!",
+"Hash": "59:0:IMARKS"
+}
+{
+"Message ID": "41269529",
+"Recipient": "+27936924684",
+"Message": "When is the homework due?",
+"Hash": "41:1:WHENDUE"
+}
+{
+"Message ID": "91505842",
+"Recipient": "+27988460089",
+"Message": "Don't forget the test next week.",
+"Hash": "91:1:DONTWEEK"
+}
+{
+"Message ID": "43140785",
+"Recipient": "+27924683694",
+"Message": "I am so happy about my marks!",
+"Hash": "43:0:IMARKS"
+}
+{
+"Message ID": "23404003",
+"Recipient": "+27936924684",
+"Message": "When are we going out?",
+"Hash": "23:1:WHENOUT"
+}
+{
+"Message ID": "39882830",
+"Recipient": "+27988460089",
+"Message": "Don't forget about Monday's test",
+"Hash": "39:1:DONTTEST"
+}
