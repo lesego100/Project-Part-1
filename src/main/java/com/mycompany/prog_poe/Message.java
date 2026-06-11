@@ -140,6 +140,7 @@ public class Message {
             //stores entered message for later
             case 3: 
                 MessageManager.addMessage(message, messageHash, messageID, recipientCell, choice);
+                storeMessages();
                 
                 return "Message stored successfully.";
             //program displays this if user's choice is incorrect    
@@ -170,6 +171,7 @@ public class Message {
             json.write("\"Message\": \"" + message + "\",\n");
             json.write("\"Hash\": \"" + messageHash + "\"\n");
             json.write("}\n");
+            json.close();
         }
         catch(IOException e) {
             System.out.println("Failed to store message.");

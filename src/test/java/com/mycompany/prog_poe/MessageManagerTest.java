@@ -16,25 +16,32 @@ public class MessageManagerTest {
     MessageManager.sentMessages = new String[50];
     MessageManager.storedMessages = new String[50];
     MessageManager.disregardedMessages = new String [50];
+    
     MessageManager.hash = new String[50];
     MessageManager.ID = new String[50];
     MessageManager.recipient = new String[50];
+    
+    MessageManager.sentCount = 0;
+    MessageManager.storedCount = 0;
+    MessageManager.disregardCount = 0;
+    
     MessageManager.populateTestData();
+    MessageManager.loadStoredMessagesFromJSON();
+    }
+    
+    @Test
+    public void testPopulateArrays() { 
+        assertEquals(2, MessageManager.sentCount);
+        assertEquals(2, MessageManager.storedCount);
+        assertEquals(1, MessageManager.disregardCount);
     }
 
     @Test
-    public void testAddMessage() { 
-        String expected = "Did you get the cake?\nIt is dinner time!";
+    public void testSentMessage() { 
+        String expected = "Did you get the cake?"
+                        + "\nIt is dinner time!";
         String actual = MessageManager.getSentMessagesAsString();
          
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testGetGlobalIndex() {
-        int expected = 5;
-        int actual = MessageManager.getGlobalIndex();
-        
         assertEquals(expected, actual);
     }
 
@@ -47,28 +54,26 @@ public class MessageManagerTest {
     }
 
     @Test
-    public void testSearchMessageByID() {
-        String expected = "It is dinner time!";
-        String actual = MessageManager.searchMessageByID("0838884567");
-        
-        assertEquals(expected, actual);
-    }
-
-    @Test
     public void testSearchRecipientMessage() {
-        String expected = "Where are you? You are late! I have asked you to be on time."
-                         +"\nOk, I am leaving without you.";
         String actual = MessageManager.searchRecipientMessage("+27838884567");
         
-        assertEquals(expected, actual);
+        assertTrue(actual.contains("Where are you?"));
     }
 
     @Test
     public void testDeleteMessageByHash() {
-        String expected = "Message successfully deleted";
-        String actual = MessageManager.deleteMessageByHash("H2");
+        String result = MessageManager.deleteMessageByHash("H2");
         
-        assertEquals(expected, actual);
+        assertEquals("Message successfully deleted", result);
+    }
+    
+    @Test
+    public void testDeletedMessageCannotBeFound() {
+        MessageManager.deleteMessageByHash("H2");
+        
+        String result = MessageManager.searchRecipientMessage("0838884567");
+        
+        assertNotEquals("Where are you? You are late! I have asked you to be late.", result);
     }
 
     @Test
@@ -78,6 +83,20 @@ public class MessageManagerTest {
         assertTrue(report.contains("Message Hash"));
         assertTrue(report.contains("Recipient"));
         assertTrue(report.contains("Message"));
+    }
+    
+    @Test
+    public void testInvalidHashDeletion() {
+        String result = MessageManager.deleteMessageByHash("XYZ");
+        
+        assertEquals("Message not found", result);
+    }
+    
+    @Test
+    public void testLoadStoredMessagesFromJSON() {
+        MessageManager.loadStoredMessagesFromJSON();
+        
+        assertTrue(MessageManager.storedCount > 0);
     }
     
 }

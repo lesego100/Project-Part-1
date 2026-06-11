@@ -86,9 +86,13 @@ public class PROG_POE {
                 
                 switch(option) {
                     case "a":
-                            Message msgObj = new Message(input);
-                            System.out.println("Sender: " + rgtObj.cellPhoneNumber 
-                                              +"\nRecipient: " + msgObj.getRecipientCell());
+                            for(int i = 0; i < MessageManager.globalIndex; i++) {
+                                if(MessageManager.storedMessages[i] != null) {
+                                    System.out.println("Sender: " + MessageManager.ID[i]);
+                                    System.out.println("Recipient: " + MessageManager.recipient[i]);
+                                    System.out.println("Message: " + MessageManager.storedMessages[i]);
+                                }
+                            }
                        break;
                     case "b":
                             System.out.println(MessageManager.longestStoredMessage());
