@@ -60,7 +60,7 @@ public class PROG_POE {
             case 1:
                 //Check if user has reached the limit
                 if(messagesEntered < maxMessages) {
-                    Message msgObj = new Message(input, rgtObj.cellPhoneNumber);
+                    Message msgObj = new Message(input);
                     msgObj.retrieveMessage();
                     messagesEntered++;
                     
@@ -92,7 +92,7 @@ public class PROG_POE {
                     case "a":
                             for(int i = 0; i < MessageManager.globalIndex; i++) {
                                 if(MessageManager.storedMessages[i] != null) {
-                                    System.out.println("Sender: " + sender);
+                                    System.out.println("Sender: " + rgtObj.getCellPhoneNumber());
                                     System.out.println("Recipient: " + MessageManager.recipient[i]);
                                     System.out.println("Message: " + MessageManager.storedMessages[i]);//FIX: ONLY PICKS UP MESSAGE 2
                                 }
@@ -127,7 +127,7 @@ public class PROG_POE {
                 break;
             //choice to exit the application and displays total number of messages sent
             case 4:
-                Message msg = new Message(input, rgtObj.cellPhoneNumber);
+                Message msg = new Message(input);
                 System.out.println("\n ");
                 System.out.println("Total messages sent: " + msg.returnTotalMessages());
                 

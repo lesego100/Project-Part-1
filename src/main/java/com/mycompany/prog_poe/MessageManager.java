@@ -43,8 +43,8 @@ public class MessageManager {
         String longestMsg = "";
         
         for(int i = 0; i < globalIndex; i++){
-            if(storedMessages[i] != null && ID[i] != null && recipient[i] != null) {
-                if(storedMessages[i] != null && storedMessages[i].length() > longestMsg.length()) {
+            if(storedMessages[i] != null) {
+                if(longestMsg.equals("") || storedMessages[i].length() > longestMsg.length()) {
                 longestMsg = storedMessages[i];
                }
             }
@@ -64,11 +64,11 @@ public class MessageManager {
     public static String searchRecipientMessage(String recipientCell) {
         String result = "";
         for(int i = 0; i < globalIndex; i++) {
-            if(recipient[i] != null && recipient[i].equals(recipientCell)) {
-                if(storedMessages[i] != null && ID[i] != null && recipient[i] != null) {
+                    if(storedMessages[i] != null) {
+                        if(recipient[i] != null && recipient[i].equals(recipientCell)) {
                     result += storedMessages[i] + "\n";
                 }
-            }
+                    }
         }
         if(result.equals("")) {
             return "No messages found";
@@ -77,7 +77,7 @@ public class MessageManager {
     }
     public static String deleteMessageByHash(String messageHash) {
         for(int i = 0; i < globalIndex; i++) {
-            if(hash[i] != null && hash[i].equals(messageHash) && storedMessages[i] != null) {
+            if(hash[i] != null && hash[i].equals(messageHash)) {
                 for(int x = i; x < globalIndex - 1; x++) {
                     
                     hash[x] = hash[x + 1];
@@ -101,7 +101,6 @@ public class MessageManager {
                     globalIndex--;
                     
                     return "Message successfully deleted";
-                
             }
         }
         return "Message not found";
@@ -110,13 +109,7 @@ public class MessageManager {
         String report = "";
         
         for(int i = 0; i < globalIndex; i++) {
-           if(hash[i] != null) {
-                
-            report += "\nMessage ID: " + ID[i];
-            report += "\nMessage Hash: " + hash[i];
-            report += "\nRecipient: " + recipient[i];//CHECK THIS METHOD
-            
-            if(storedMessages[i] != null) {
+           if(storedMessages[i] != null) {
                 report += "\nMessage ID: " + ID[i];
                 report += "\nMessage Hash: " + hash[i];
                 report += "\nRecipient: " + recipient[i];
@@ -124,7 +117,6 @@ public class MessageManager {
             }
             report += "\n---------------------\n";
            }
-        }
         return report;
     }
     public static void populateTestData() {
@@ -135,20 +127,23 @@ public class MessageManager {
         globalIndex = 0;
         
         addMessage("Did you get the cake?", "H1", "0834557896", "+27834557896", 1);
-        addMessage("Where are you? You are late! I have asked you to be on time.", "H2", "0838884567", "+27838884567", 2);
-        addMessage("Yohoooo, I am at your gate.", "H3", "0833448908", "+27833448908", 3);
+        addMessage("Where are you? You are late! I have asked you to be on time.", "H2", "0838884567", "+27838884567", 3);
+        addMessage("Yohoooo, I am at your gate.", "H3", "0833448908", "+27833448908", 2);
         addMessage("It is dinner time!", "H4", "0838884567", "+27838884567", 1);
-        addMessage("Ok, I am leaving without you.", "H5", "0833884567", "+27833884567",2);
+        addMessage("Ok, I am leaving without you.", "H5", "0833884567", "+27833884567",3);
     }
     public static String getSentMessagesAsString() {
         String result = "";
         
+        boolean first = true;
+        
         for(int i = 0; i < globalIndex; i++) {
-            if(sentMessages[i] != null) {
-              result += sentMessages[i];  
-               if(i < sentCount - 1){
+            if(sentMessages[i] != null) { 
+               if(!first){
               result += "\n";
                }
+               result += sentMessages[i];
+               first = false;
             }
         }
         return result;

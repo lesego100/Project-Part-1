@@ -172,3 +172,69 @@
 "Message": "Please remind me later",
 "Hash": "65:1:PLEASELATER"
 }
+{
+"Message ID": "80642110",
+"Recipient": "+27924683694",
+"Message": "I am so excited for the relaunch!",
+"Hash": "80:0:IRELAUNCH"
+}
+{
+"Message ID": "91298047",
+"Recipient": "+27936924684",
+"Message": "When is the next event?",
+"Hash": "91:1:WHENEVENT"
+}
+{
+"Message ID": "45796389",
+"Recipient": "+27988460089",
+"Message": "Please remind me.",
+"Hash": "45:1:PLEASEME"
+}
+{
+"Message ID": "12731659",
+"Recipient": "+27924683694",
+"Message": "I am so excited for the launch!",
+"Hash": "12:0:ILAUNCH"
+}
+{
+"Message ID": "23439291",
+"Recipient": "+27936924684",
+"Message": "When is the next event?",
+"Hash": "23:1:WHENEVENT"
+}
+{
+"Message ID": "57593976",
+"Recipient": "+27988460089",
+"Message": "Please remind me.",
+"Hash": "57:1:PLEASEME"
+}
+{
+"Message ID": "null",
+"Recipient": "null",
+"Message": "null",
+"Hash": "null"
+}
+{
+"Message ID": "null",
+"Recipient": "null",
+"Message": "null",
+"Hash": "null"
+}
+{
+"Message ID": "85481188",
+"Recipient": "+27924683694",
+"Message": "I am so excited about the relaunch!",
+"Hash": "85:0:IRELAUNCH"
+}
+{
+"Message ID": "18610544",
+"Recipient": "+27936924684",
+"Message": "When is the next event?",
+"Hash": "18:1:WHENEVENT"
+}
+{
+"Message ID": "10305350",
+"Recipient": "+27988460089",
+"Message": "Please remind me.",
+"Hash": "10:1:PLEASEME"
+}

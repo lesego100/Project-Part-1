@@ -10,7 +10,6 @@ public class Message {
     private String recipientCell;
     private String message;
     private String messageHash;
-    private String senderCell;
     //static variables to track the total number of messages sent and are shared by all message objects
     private static int numberOfMessages = 0;
     private static String totalMessages = "";
@@ -29,9 +28,8 @@ public class Message {
      * @param input
      */
     //constructor to help receive the scanner from the main class
-    public Message(Scanner input, String senderCell) {
+    public Message(Scanner input) {
         this.input = input;
-        this.senderCell = senderCell;
     }
     
     //method to retrieve and process message details

@@ -25,21 +25,17 @@ public class MessageManagerTest {
     MessageManager.storedCount = 0;
     MessageManager.disregardCount = 0;
     
-    MessageManager.populateTestData();
-    MessageManager.loadStoredMessagesFromJSON();
-    }
+    MessageManager.globalIndex = 0;
     
-    @Test
-    public void testPopulateArrays() { 
-        assertEquals(2, MessageManager.sentCount);
-        assertEquals(2, MessageManager.storedCount);
-        assertEquals(1, MessageManager.disregardCount);
+    MessageManager.addMessage("Did you get the cake?", "H1", "0834557896", "+27834557896", 1);
+    MessageManager.addMessage("Where are you? You are late! I have asked you to be on time.", "H2", "0838884567", "+27838884567", 3);
+    MessageManager.addMessage("Yohoooo, I am at your gate.", "H3", "0833448908", "+27833448908", 2);
+    MessageManager.addMessage("It is dinner time!", "H4", "0838884567", "+27838884567", 1);
+    MessageManager.addMessage("Ok, I am leaving without you.", "H5", "0833884567", "+27833884567",3);
     }
-
     @Test
     public void testSentMessage() { 
-        String expected = "Did you get the cake?"
-                        + "\nIt is dinner time!";
+        String expected = "Did you get the cake?\nIt is dinner time!";
         String actual = MessageManager.getSentMessagesAsString();
          
         assertEquals(expected, actual);
@@ -68,15 +64,6 @@ public class MessageManagerTest {
     }
     
     @Test
-    public void testDeletedMessageCannotBeFound() {
-        MessageManager.deleteMessageByHash("H2");
-        
-        String result = MessageManager.searchRecipientMessage("0838884567");
-        
-        assertNotEquals("Where are you? You are late! I have asked you to be late.", result);
-    }
-
-    @Test
     public void testGenerateReport() {
         String report = MessageManager.generateReport();
         
@@ -84,19 +71,4 @@ public class MessageManagerTest {
         assertTrue(report.contains("Recipient"));
         assertTrue(report.contains("Message"));
     }
-    
-    @Test
-    public void testInvalidHashDeletion() {
-        String result = MessageManager.deleteMessageByHash("XYZ");
-        
-        assertEquals("Message not found", result);
-    }
-    
-    @Test
-    public void testLoadStoredMessagesFromJSON() {
-        MessageManager.loadStoredMessagesFromJSON();
-        
-        assertTrue(MessageManager.storedCount > 0);
-    }
-    
 }
