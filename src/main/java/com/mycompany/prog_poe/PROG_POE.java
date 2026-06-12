@@ -7,6 +7,8 @@ public class PROG_POE {
         Scanner input = new Scanner(System.in);
         //create a Registration object 
         Registration rgtObj = new Registration();
+        //
+        String sender = rgtObj.getCellPhoneNumber();
         //Register the user
         boolean registrationSuccess = rgtObj.registerUser();
         //only allow the user to proceed to login if registration was successful
@@ -30,6 +32,8 @@ public class PROG_POE {
         if(loginSuccess) {
             System.out.println("\n ");
             System.out.println("Welcome to QuickChat");
+            //MessageManager.populateTestData();
+            
         //User chooses how many messages they want to enter
         System.out.println("How many messages would you like to enter? ");
         int maxMessages = input.nextInt();
@@ -56,7 +60,7 @@ public class PROG_POE {
             case 1:
                 //Check if user has reached the limit
                 if(messagesEntered < maxMessages) {
-                    Message msgObj = new Message(input);
+                    Message msgObj = new Message(input, rgtObj.cellPhoneNumber);
                     msgObj.retrieveMessage();
                     messagesEntered++;
                     
@@ -87,10 +91,8 @@ public class PROG_POE {
                 switch(option) {
                     case "a":
                             for(int i = 0; i < MessageManager.globalIndex; i++) {
-                                if(MessageManager.storedMessages[i] != null 
-                                   && MessageManager.ID[i] != null
-                                   && MessageManager.recipient[i] != null) {
-                                    System.out.println("Sender: " + MessageManager.ID[i]);
+                                if(MessageManager.storedMessages[i] != null) {
+                                    System.out.println("Sender: " + sender);
                                     System.out.println("Recipient: " + MessageManager.recipient[i]);
                                     System.out.println("Message: " + MessageManager.storedMessages[i]);//FIX: ONLY PICKS UP MESSAGE 2
                                 }
@@ -125,7 +127,7 @@ public class PROG_POE {
                 break;
             //choice to exit the application and displays total number of messages sent
             case 4:
-                Message msg = new Message(input);
+                Message msg = new Message(input, rgtObj.cellPhoneNumber);
                 System.out.println("\n ");
                 System.out.println("Total messages sent: " + msg.returnTotalMessages());
                 

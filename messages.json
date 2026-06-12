@@ -118,3 +118,57 @@
 "Message": "Don't forget about Monday's test",
 "Hash": "39:1:DONTTEST"
 }
+{
+"Message ID": "86447008",
+"Recipient": "+27924683694",
+"Message": "I am soo excited for the relaunch!",
+"Hash": "86:0:IRELAUNCH"
+}
+{
+"Message ID": "80881196",
+"Recipient": "+27936924683",
+"Message": "When is the next event taking place?",
+"Hash": "80:1:WHENPLACE"
+}
+{
+"Message ID": "29363762",
+"Recipient": "+27988460089",
+"Message": "Don't forget to remind me",
+"Hash": "29:1:DONTME"
+}
+{
+"Message ID": "15410118",
+"Recipient": "+27924683694",
+"Message": "I am so excited for the relaunch!",
+"Hash": "15:0:IRELAUNCH"
+}
+{
+"Message ID": "65588070",
+"Recipient": "+27936924684",
+"Message": "When is the event taking place again?",
+"Hash": "65:1:WHENAGAIN"
+}
+{
+"Message ID": "62283811",
+"Recipient": "+27988460089",
+"Message": "Don't forget to remind me",
+"Hash": "62:1:DONTME"
+}
+{
+"Message ID": "1674971",
+"Recipient": "+27924683694",
+"Message": "I am so excited about the relaunch!",
+"Hash": "16:0:IRELAUNCH"
+}
+{
+"Message ID": "29032043",
+"Recipient": "+27936924684",
+"Message": "When is the event again?",
+"Hash": "29:1:WHENAGAIN"
+}
+{
+"Message ID": "65480764",
+"Recipient": "+27988460089",
+"Message": "Please remind me later",
+"Hash": "65:1:PLEASELATER"
+}

@@ -13,6 +13,10 @@ public class Registration {
     private static final String USERNAME_REGEX = "^.{1,5}_.*$";
     private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()]).{8,}$";
     private static final String CELLPHONENUMBER_REGEX = "^\\+27\\d{9}$";
+    
+    public String getCellPhoneNumber() {
+        return cellPhoneNumber;
+    }
     //create methods to validate the username, password, and cell phone number(to check if the user input follows the conditions)
     boolean checkUserName(String username) {
         if(Pattern.matches(USERNAME_REGEX, username)) {

@@ -31,10 +31,10 @@ public class MessageManager {
             sentMessages[index] = message;
         }
         else if(choice == 2) {
-            storedMessages[index] = message;
+            disregardedMessages[index] = message;
         }
         else if(choice == 3) {
-            disregardedMessages[index] = message;
+            storedMessages[index] = message;
         }
     }
     
@@ -44,7 +44,7 @@ public class MessageManager {
         
         for(int i = 0; i < globalIndex; i++){
             if(storedMessages[i] != null && ID[i] != null && recipient[i] != null) {
-                if(storedMessages[i].length() > longestMsg.length()) {
+                if(storedMessages[i] != null && storedMessages[i].length() > longestMsg.length()) {
                 longestMsg = storedMessages[i];
                }
             }
@@ -53,23 +53,12 @@ public class MessageManager {
     }
     public static String searchMessageByID(String messageID) {
         for(int i = 0; i < globalIndex; i++) {
-            if(ID[i] != null && ID[i].equals(messageID)) {
+            if(ID[i] != null && ID[i].equals(messageID) && storedMessages[i] != null) {
                 
-               System.out.println("Recipient: " + recipient[i]);
-               
-               if(sentMessages[i] != null) {
-                   return sentMessages[i];
-               }
-               if(storedMessages[i] != null) {
-                   return storedMessages[i];
-               }
-               if(disregardedMessages[i] !=  null) {
-                   return disregardedMessages[i];
-                   
+               return "Recipient: " + recipient[i] + "\nMessage: " + storedMessages[i];    
                }
                 
             }
-        }
         return "Message ID not found";
     }
     public static String searchRecipientMessage(String recipientCell) {
@@ -88,7 +77,7 @@ public class MessageManager {
     }
     public static String deleteMessageByHash(String messageHash) {
         for(int i = 0; i < globalIndex; i++) {
-            if(hash[i] != null && hash[i].equals(messageHash)) {
+            if(hash[i] != null && hash[i].equals(messageHash) && storedMessages[i] != null) {
                 for(int x = i; x < globalIndex - 1; x++) {
                     
                     hash[x] = hash[x + 1];
@@ -123,19 +112,17 @@ public class MessageManager {
         for(int i = 0; i < globalIndex; i++) {
            if(hash[i] != null) {
                 
-            report += "Message Hash: " + hash[i];
-            report += "\nRecipient: " + recipient[i];
-            report += "\nMessage: " + storedMessages[i];//CHECK THIS METHOD
+            report += "\nMessage ID: " + ID[i];
+            report += "\nMessage Hash: " + hash[i];
+            report += "\nRecipient: " + recipient[i];//CHECK THIS METHOD
             
-            if(sentMessages[i] != null ) {
-                report += "Message: " + sentMessages[i];
-            }
             if(storedMessages[i] != null) {
+                report += "\nMessage ID: " + ID[i];
+                report += "\nMessage Hash: " + hash[i];
+                report += "\nRecipient: " + recipient[i];
                 report += "\nMessage: " + storedMessages[i];
             }
-            if(disregardedMessages[i] != null) {
-                report += "\nMessage: " + disregardedMessages[i];
-            }
+            report += "\n---------------------\n";
            }
         }
         return report;
@@ -156,7 +143,7 @@ public class MessageManager {
     public static String getSentMessagesAsString() {
         String result = "";
         
-        for(int i = 0; i < sentCount; i++) {
+        for(int i = 0; i < globalIndex; i++) {
             if(sentMessages[i] != null) {
               result += sentMessages[i];  
                if(i < sentCount - 1){
