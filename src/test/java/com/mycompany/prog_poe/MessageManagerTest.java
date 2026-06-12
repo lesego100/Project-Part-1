@@ -11,6 +11,7 @@ public class MessageManagerTest {
     
     public MessageManagerTest() {
     }
+    //resets all arrays and loads all the required test data before each unit test is executed
     @BeforeEach
     public void setup() {
     MessageManager.sentMessages = new String[50];
@@ -33,6 +34,7 @@ public class MessageManagerTest {
     MessageManager.addMessage("It is dinner time!", "H4", "0838884567", "+27838884567", 1);
     MessageManager.addMessage("Ok, I am leaving without you.", "H5", "0833884567", "+27833884567",3);
     }
+    //tests whether all the sent messages array contains the expected messages
     @Test
     public void testSentMessage() { 
         String expected = "Did you get the cake?\nIt is dinner time!";
@@ -40,7 +42,7 @@ public class MessageManagerTest {
          
         assertEquals(expected, actual);
     }
-
+    //tests whether the longest message is returned correctly
     @Test
     public void testLongestStoredMessage() {
         String expected = "Where are you? You are late! I have asked you to be on time.";
@@ -48,21 +50,21 @@ public class MessageManagerTest {
         
         assertEquals(expected, actual);
     }
-
+    //tests whether a message can be found using a recipient's number
     @Test
     public void testSearchRecipientMessage() {
         String actual = MessageManager.searchRecipientMessage("+27838884567");
         
         assertTrue(actual.contains("Where are you?"));
     }
-
+    //tests whether a message can be deleted using its message hash
     @Test
     public void testDeleteMessageByHash() {
         String result = MessageManager.deleteMessageByHash("H2");
         
         assertEquals("Message successfully deleted", result);
     }
-    
+    //tests whether the genrated report has the required details
     @Test
     public void testGenerateReport() {
         String report = MessageManager.generateReport();

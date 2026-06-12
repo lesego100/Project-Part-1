@@ -7,8 +7,6 @@ public class PROG_POE {
         Scanner input = new Scanner(System.in);
         //create a Registration object 
         Registration rgtObj = new Registration();
-        //
-        String sender = rgtObj.getCellPhoneNumber();
         //Register the user
         boolean registrationSuccess = rgtObj.registerUser();
         //only allow the user to proceed to login if registration was successful
@@ -32,13 +30,14 @@ public class PROG_POE {
         if(loginSuccess) {
             System.out.println("\n ");
             System.out.println("Welcome to QuickChat");
-            //MessageManager.populateTestData();
-            
         //User chooses how many messages they want to enter
         System.out.println("How many messages would you like to enter? ");
+        //User enters the maximum number of messages they want to enter
         int maxMessages = input.nextInt();
         input.nextLine();
         
+        
+        //counter used to track how many messages have been entered
         int messagesEntered = 0;    
         int choice;
         //do-while menu loop which allows the user to choose from 3 options
@@ -54,7 +53,7 @@ public class PROG_POE {
         choice = input.nextInt();
         input.nextLine();
         
-        
+        //processes the user's menu selection
         switch(choice) {
             //choice to send a message
             case 1:

@@ -14,6 +14,7 @@ public class Registration {
     private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()]).{8,}$";
     private static final String CELLPHONENUMBER_REGEX = "^\\+27\\d{9}$";
     
+    //create a getter to access cell phone number in other classes
     public String getCellPhoneNumber() {
         return cellPhoneNumber;
     }

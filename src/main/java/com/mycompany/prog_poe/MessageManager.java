@@ -4,25 +4,42 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class MessageManager {
-    //create parallel array list
+    //create parallel arrays
+    //array to store all sent messages
     static String[] sentMessages = new String[50];
+    //array to store all stored messages
     static String[] storedMessages = new String[50];
+    //array to store all disregarded messages
     static String[] disregardedMessages = new String[50];
     
+    //parallel used to store all message details
     static String[] hash = new String[50];
     static String[] ID = new String[50];
     static String[] recipient = new String[50];
     
+    //counters used to track all different message types
     static int sentCount = 0;
     static int storedCount = 0;
     static int disregardCount = 0;
     
+    //this tracks the next available position in arrays
     static int globalIndex = 0;
     
+    /**
+     * Adds a message and its details to the correct array based on whether it
+     * was sent, stored, or disregarded
+     * @param message
+     * @param messageHash
+     * @param messageID
+     * @param recipientCell
+     * @param choice 
+     */
     public static void addMessage(String message, String messageHash, String messageID, String recipientCell, int choice ) {
         
+        //indicates the next available array position
         int index = globalIndex++;
         
+        //store similar message details
         hash[index] = messageHash;
         ID[index] = messageID;
         recipient[index] = recipientCell;
@@ -38,6 +55,7 @@ public class MessageManager {
         }
     }
     
+    //methods finds and returns the longest message that was stored
     public static String longestStoredMessage() {
         
         String longestMsg = "";
@@ -51,6 +69,8 @@ public class MessageManager {
         }
         return longestMsg;
     }
+    
+    //searches for a stored message using its message ID
     public static String searchMessageByID(String messageID) {
         for(int i = 0; i < globalIndex; i++) {
             if(ID[i] != null && ID[i].equals(messageID) && storedMessages[i] != null) {
@@ -61,6 +81,8 @@ public class MessageManager {
             }
         return "Message ID not found";
     }
+    
+    //returns all stored messages linked to a specific recipient
     public static String searchRecipientMessage(String recipientCell) {
         String result = "";
         for(int i = 0; i < globalIndex; i++) {
@@ -75,6 +97,8 @@ public class MessageManager {
         }
         return result;
     }
+    
+    //deletes a stored message using its message hash and moves the remaining array elements to prevent gaps
     public static String deleteMessageByHash(String messageHash) {
         for(int i = 0; i < globalIndex; i++) {
             if(hash[i] != null && hash[i].equals(messageHash)) {
@@ -105,6 +129,8 @@ public class MessageManager {
         }
         return "Message not found";
     }
+    
+    //generates a report containing all the details of the stored messages
     public static String generateReport() {
         String report = "";
         
@@ -119,6 +145,8 @@ public class MessageManager {
            }
         return report;
     }
+    
+    //populates arrays with already given test data required for the unit tests
     public static void populateTestData() {
         
         sentCount = 0;
@@ -132,6 +160,8 @@ public class MessageManager {
         addMessage("It is dinner time!", "H4", "0838884567", "+27838884567", 1);
         addMessage("Ok, I am leaving without you.", "H5", "0833884567", "+27833884567",3);
     }
+    
+    //returns all test data as one formatted string
     public static String getSentMessagesAsString() {
         String result = "";
         
@@ -148,6 +178,8 @@ public class MessageManager {
         }
         return result;
     }
+    
+    //reads all stored messages from the JSON file and loads them into parallel arrays
     public static void loadStoredMessagesFromJSON() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("messages.json"));
