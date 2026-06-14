@@ -35,8 +35,6 @@ public class PROG_POE {
         //User enters the maximum number of messages they want to enter
         int maxMessages = input.nextInt();
         input.nextLine();
-        
-        
         //counter used to track how many messages have been entered
         int messagesEntered = 0;    
         int choice;

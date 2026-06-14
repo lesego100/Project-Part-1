@@ -101,7 +101,7 @@ public class MessageManager {
     //deletes a stored message using its message hash and moves the remaining array elements to prevent gaps
     public static String deleteMessageByHash(String messageHash) {
         for(int i = 0; i < globalIndex; i++) {
-            if(hash[i] != null && hash[i].equals(messageHash)) {
+            if(hash[i] != null && hash[i].equals(messageHash) && storedMessages[i] != null) {
                 for(int x = i; x < globalIndex - 1; x++) {
                     
                     hash[x] = hash[x + 1];

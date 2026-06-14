@@ -238,3 +238,63 @@
 "Message": "Please remind me.",
 "Hash": "10:1:PLEASEME"
 }
+{
+"Message ID": "47473295",
+"Recipient": "+27924683694",
+"Message": "I am soo excited for the launch!",
+"Hash": "47:0:ILAUNCH"
+}
+{
+"Message ID": "64268115",
+"Recipient": "+27936924684",
+"Message": "When is the next event?",
+"Hash": "64:1:WHENEVENT"
+}
+{
+"Message ID": "8286216",
+"Recipient": "+27988460089",
+"Message": "Please remind me to send you the notes.",
+"Hash": "82:1:PLEASENOTES"
+}
+{
+"Message ID": "58973290",
+"Recipient": "+27924683694",
+"Message": "I am soo excited about the launch!",
+"Hash": "58:0:ILAUNCH"
+}
+{
+"Message ID": "53119080",
+"Recipient": "+27936924684",
+"Message": "When is the next event?",
+"Hash": "53:1:WHENEVENT"
+}
+{
+"Message ID": "77231133",
+"Recipient": "+27988460089",
+"Message": "Please remind about the notes.",
+"Hash": "77:1:PLEASENOTES"
+}
+{
+"Message ID": "null",
+"Recipient": "null",
+"Message": "null",
+"Hash": "null"
+}
+{
+"Message ID": "null",
+"Recipient": "null",
+"Message": "null",
+"Hash": "null"
+}
+{
+"Message ID": "null",
+"Recipient": "null",
+"Message": "null",
+"Hash": "null"
+}
+{
+"Message ID": "null",
+"Recipient": "null",
+"Message": "null",
+"Hash": "null"
+}
